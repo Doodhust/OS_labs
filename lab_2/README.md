@@ -23,7 +23,9 @@ test_utility.cpp: Тестовая утилита для проверки раб
 **Скомпилируйте библиотеку и тестовую утилиту:**
 
 g++ -c launch_lib.cpp -o launch_lib.o
-g++ -c test_utility.cpp -o test_utility.o
+
+g++ -c test_utility.cpp -o test_utility.o 
+
 g++ launch_lib.o test_utility.o -o test_utility
 
 
@@ -36,7 +38,9 @@ g++ launch_lib.o test_utility.o -o test_utility
 **Скомпилируйте библиотеку и тестовую утилиту:**
 
 g++ -c launch_lib.cpp -o launch_lib.o
+
 g++ -c test_utility.cpp -o test_utility.o
+
 g++ launch_lib.o test_utility.o -o test_utility.exe -luser32 -lkernel32
 
 **Запустите тестовую утилиту:**
