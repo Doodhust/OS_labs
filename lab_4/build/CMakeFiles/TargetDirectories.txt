@@ -1,0 +1,8 @@
+/home/doodhust/sourse/OS_myself/lab_4/build/CMakeFiles/edit_cache.dir
+/home/doodhust/sourse/OS_myself/lab_4/build/CMakeFiles/rebuild_cache.dir
+/home/doodhust/sourse/OS_myself/lab_4/build/simulator/CMakeFiles/temperature_simulator.dir
+/home/doodhust/sourse/OS_myself/lab_4/build/simulator/CMakeFiles/edit_cache.dir
+/home/doodhust/sourse/OS_myself/lab_4/build/simulator/CMakeFiles/rebuild_cache.dir
+/home/doodhust/sourse/OS_myself/lab_4/build/reader/CMakeFiles/temperature_reader.dir
+/home/doodhust/sourse/OS_myself/lab_4/build/reader/CMakeFiles/edit_cache.dir
+/home/doodhust/sourse/OS_myself/lab_4/build/reader/CMakeFiles/rebuild_cache.dir
