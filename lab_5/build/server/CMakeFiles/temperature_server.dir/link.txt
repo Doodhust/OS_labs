@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/temperature_server.dir/server.cpp.o -o ../bin/temperature_server  /usr/lib64/libsqlite3.so

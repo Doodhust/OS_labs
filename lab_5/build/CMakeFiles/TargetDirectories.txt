@@ -1,0 +1,5 @@
+/home/doodhust/sourse/OS_myself/lab_5/build/CMakeFiles/edit_cache.dir
+/home/doodhust/sourse/OS_myself/lab_5/build/CMakeFiles/rebuild_cache.dir
+/home/doodhust/sourse/OS_myself/lab_5/build/server/CMakeFiles/temperature_server.dir
+/home/doodhust/sourse/OS_myself/lab_5/build/server/CMakeFiles/edit_cache.dir
+/home/doodhust/sourse/OS_myself/lab_5/build/server/CMakeFiles/rebuild_cache.dir

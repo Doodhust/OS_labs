@@ -11,32 +11,34 @@
 #include <unistd.h>
 #endif
 
+namespace std;
+
 struct TemperatureData {
-    std::string timestamp;
+    string timestamp;
     double temperature;
 };
 
-std::string readFromSerialPort(const std::string& port) {
-    std::ifstream serial(port);
-    std::string data;
+string readFromSerialPort(const string& port) {
+    ifstream serial(port);
+    string data;
     if (serial.is_open()) {
-        std::getline(serial, data);
+        getline(serial, data);
     } else {
-        std::cerr << "Failed to open serial port: " << port << std::endl;
+        cerr << "Failed to open serial port: " << port << endl;
     }
     return data;
 }
 
-void writeToLog(const std::string& filename, const std::string& data) {
-    std::ofstream logfile(filename, std::ios::app);
+void writeToLog(const string& filename, const string& data) {
+    ofstream logfile(filename, ios::app);
     if (logfile.is_open()) {
-        logfile << data << std::endl;
+        logfile << data << endl;
     } else {
-        std::cerr << "Failed to open log file: " << filename << std::endl;
+        cerr << "Failed to open log file: " << filename << endl;
     }
 }
 
-double calculateAverage(const std::vector<TemperatureData>& data) {
+double calculateAverage(const vector<TemperatureData>& data) {
     double sum = 0.0;
     for (const auto& entry : data) {
         sum += entry.temperature;
@@ -46,20 +48,20 @@ double calculateAverage(const std::vector<TemperatureData>& data) {
 
 int main() {
 #ifdef _WIN32
-    std::string port = "COM4";  // Для Windows
+    string port = "COM4";  // Для Windows
 #else
-    std::string port = "/dev/pts/3";  // Для Unix
+    string port = "/dev/pts/3";  // Для Unix
 #endif
 
-    std::vector<TemperatureData> hourlyData;
-    std::vector<TemperatureData> dailyData;
+    vector<TemperatureData> hourlyData;
+    vector<TemperatureData> dailyData;
 
     while (true) {
-        std::string data = readFromSerialPort(port);
+        string data = readFromSerialPort(port);
         if (!data.empty()) {
-            double temperature = std::stod(data);
-            std::time_t now = std::time(nullptr);
-            std::string timestamp = std::ctime(&now);
+            double temperature = stod(data);
+            time_t now = time(nullptr);
+            string timestamp = ctime(&now);
             timestamp.pop_back();
 
             writeToLog("../logs/all_measurements.log", timestamp + ": " + data);
@@ -70,13 +72,13 @@ int main() {
 
             if (hourlyData.size() >= 60) {
                 double hourlyAverage = calculateAverage(hourlyData);
-                writeToLog("../logs/hourly_average.log", timestamp + ": " + std::to_string(hourlyAverage));
+                writeToLog("../logs/hourly_average.log", timestamp + ": " + to_string(hourlyAverage));
                 hourlyData.clear();
             }
 
             if (dailyData.size() >= 1440) {
                 double dailyAverage = calculateAverage(dailyData);
-                writeToLog("../logs/daily_average.log", timestamp + ": " + std::to_string(dailyAverage));
+                writeToLog("../logs/daily_average.log", timestamp + ": " + to_string(dailyAverage));
                 dailyData.clear();
             }
         }
