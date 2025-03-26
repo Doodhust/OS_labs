@@ -10,8 +10,6 @@ Windows:
 
 
 2. Запуск системы
-bash
-Copy
 ./temperature_server
 Программа начнет работать на порту 8080.
 
@@ -21,31 +19,14 @@ Copy
 # Linux
 echo "25.7" > /dev/pts/X  # где X - номер порта из вывода socat
 
-# Windows 
-5. Доступ к веб-интерфейсу
+4. Доступ к веб-интерфейсу
 Откройте в браузере:
 
-Copy
 http://localhost:8080/current
 или для статистики:
 
-Copy
 http://localhost:8080/stats
-Структура проекта
-Copy
-temperature_monitor/
-├── server/
-│   ├── server.cpp         # Основной код сервера
-│   ├── CMakeLists.txt     # Файл сборки
-│   ├── httplib.h          # Версия 0.12.1
-│   └── json.hpp           # nlohmann/json
-├── client/
-│   ├── index.html         # Веб-интерфейс
-│   ├── style.css          # Стили
-│   └── script.js          # JavaScript код
-├── database/
-│   └── temperature.db     # Файл базы данных
-└── README.md              # Инструкции
+
 Архитектура системы
 SerialReader - чтение данных с последовательного порта
 
@@ -70,10 +51,3 @@ GET /stats - статистика за период
 Сохранение в базу данных
 
 Генерация тестовых данных при отсутствии устройства
-
-Настройка
-Измените параметры в начале main():
-
-const string serial_port = "/dev/2";  // или "COM3" для Windows
-const string db_file = "temperature.db";
-const int http_port = 8080;
