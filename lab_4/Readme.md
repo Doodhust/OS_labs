@@ -9,18 +9,23 @@
 Создайте виртуальные порты:
 
 socat -d -d pty,raw,echo=0 pty,raw,echo=0
+
 Это создаст два порта, например, /dev/pts/3 и /dev/pts/4.
 
 ./simulator/temperature_simulator /dev/pts/3
+
 Запустите программу для считывания температуры:
 
 ./reader/temperature_reader /dev/pts/4
+
 Для Windows:
+
 Установите com0com для создания виртуальных портов.
 
 Запустите симулятор:
 
 simulator\temperature_simulator.exe COM3
+
 Запустите программу для считывания температуры:
 
 reader\temperature_reader.exe COM4
